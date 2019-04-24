@@ -21,7 +21,9 @@ var camera = (function() {
 
 		if (navigator.mediaDevices.getUserMedia) {
 			navigator.mediaDevices.getUserMedia({
-				video: true
+                video: {
+                    facingMode: options.facingMode
+                }
 			}).then(function(stream) {
 				options.onSuccess();
 
@@ -92,7 +94,8 @@ var camera = (function() {
 			options.width = options.width || 640;
 			options.height = options.height || 480;
 			options.mirror = options.mirror || false;
-			options.targetCanvas = options.targetCanvas || null; // TODO: is the element actually a <canvas> ?
+            options.targetCanvas = options.targetCanvas || null; // TODO: is the element actually a <canvas> ?
+            options.facingMode = options.facingMode || "user";
 
 			options.onSuccess = options.onSuccess || doNothing;
 			options.onError = options.onError || doNothing;
