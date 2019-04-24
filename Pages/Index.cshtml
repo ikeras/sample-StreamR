@@ -107,7 +107,8 @@ async function startAsync() {
         if (streamName === "") {
             streamName = "random name " + Math.random() * 2;
         }
-        await connection.send("StartStream", streamName, subject);
+		await connection.send("StartStream", streamName, subject);
+		addStream(streamName);
     }
 }
 

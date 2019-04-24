@@ -21,7 +21,8 @@ var camera = (function() {
 
 		if (navigator.mediaDevices.getUserMedia) {
 			navigator.mediaDevices.getUserMedia({
-				video: true
+				video: true,
+				facingMode: "user"
 			}).then(function(stream) {
 				options.onSuccess();
 
