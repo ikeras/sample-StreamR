@@ -48,7 +48,8 @@ async function startAsync() {
             subject.complete();
             camera.stop();
             isStreaming = false;
-        }
+		}
+		removeStream(streamName);
     }
     startStreamButton.onclick = async function () {
         startStreamButton.setAttribute("disabled", "disabled");
@@ -63,7 +64,8 @@ async function startAsync() {
         if (streamName === "") {
             streamName = "random name " + Math.random() * 2;
         }
-        await connection.send("StartStream", streamName, subject);
+		await connection.send("StartStream", streamName, subject);
+		addStream(streamName);
     }
 
     swapCameraButton.onclick = async function () {
