@@ -15,11 +15,11 @@ namespace StreamR
         public List<string> ListStreams()
         {
             var streamList = new List<string>();
-            foreach (var item in _streams)
-            {
-                streamList.Add(item.Key);
-            }
-            return streamList;
+			foreach (var item in _streams)
+			{
+				streamList.Add(item.Key);
+			}
+			return streamList;
         }
 
         public async Task RunStreamAsync(string streamName, ChannelReader<string> stream)

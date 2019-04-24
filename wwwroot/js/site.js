@@ -70,7 +70,7 @@ async function startAsync() {
         if (facingMode === "user") {
             facingMode = "environment";
         } else {
-            facingMode = "user";
+            facingMode = "users";
         }
 
         startCamera();
