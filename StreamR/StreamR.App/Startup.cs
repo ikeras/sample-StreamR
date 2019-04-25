@@ -33,7 +33,6 @@ namespace StreamR
 
             services.AddSignalR();
 
-            services.AddSingleton<StreamManager>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

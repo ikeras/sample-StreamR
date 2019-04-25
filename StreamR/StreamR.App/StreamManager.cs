@@ -12,22 +12,17 @@ namespace StreamR
         private readonly ConcurrentDictionary<string, StreamHolder> _streams = new ConcurrentDictionary<string, StreamHolder>();
         private long _globalClientId;
 
-        public List<string> ListStreams()
-        {
+        public List<string> ListStreams(){
             var streamList = new List<string>();
-			foreach (var item in _streams)
-			{
-				streamList.Add(item.Key);
-			}
 			return streamList;
         }
 
         public async Task RunStreamAsync(string streamName, ChannelReader<string> stream)
         {
-            var streamHolder = new StreamHolder() { Source = stream };
+			var streamHolder = new StreamHolder() { Source = stream };
 
             // Add before yielding
-            // This fixes a race where we tell clients a new stream arrives before adding the stream
+				// This fixes a race where we tell clients a new stream arrives before adding the stream
             _streams.TryAdd(streamName, streamHolder);
 
             await Task.Yield();
