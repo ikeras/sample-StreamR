@@ -2,14 +2,16 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Channels;
+using System.Threading.Channels;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.SignalR;
+using Microsoft.AspNetCore.Builder;
 
 namespace StreamR
 {
     public class StreamManager
     {
-        private readonly ConcurrentDictionary<string, StreamHolder> _streams = new ConcurrentDictionary<string, StreamHolder>();
+			private readonly ConcurrentDictionary<string, StreamHolder> _streams = new ConcurrentDictionary<string, StreamHolder>();
         private long _globalClientId;
 
         public List<string> ListStreams()
@@ -18,21 +20,19 @@ namespace StreamR
 			return streamList;
         }
 
-        public async Task RunStreamAsync(string streamName, ChannelReader<string> stream)
-        {
+        public async Task RunStreamAsync(string streamName, ChannelReader<string> stream) {
             var streamHolder = new StreamHolder() { Source = stream };
-
-            // Add before yielding
+			
+			// Add before yielding
             // This fixes a race where we tell clients a new stream arrives before adding the stream
             _streams.TryAdd(streamName, streamHolder);
 
             await Task.Yield();
 
-            try
+	    try
             {
-                await foreach (var item in stream.ReadAllAsync())
-                {
-                    foreach (var viewer in streamHolder.Viewers)
+                await foreach (var item in stream.ReadAllAsync()) {
+		        foreach (var viewer in streamHolder.Viewers)
                     {
                         try
                         {
