@@ -40,7 +40,41 @@ html {
   position: relative;
   min-height: 100%;
 }
-
+.nav-item {
+  font-size: 1.2rem !important;
+}
+#stream-bar {
+  margin-top: 20px;
+}
+#navigation-bar {
+  background-color: lightblue !important;
+  border-bottom: 1px solid black !important;
+}
+#container {
+  margin-top: 40px;
+  display: flex;
+  align-items: flex-start;
+}
+#myPre {
+  font-size: 35%;
+  
+  border: 1px solid black;
+  display: inline-block;
+  width: 675px;
+  height: 680px;
+}
+h3 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+.navbar-brand {
+  font-size: 30px;
+  margin-right: 30px;
+}
+canvas {
+  border: 1px solid black;
+  
+}
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;

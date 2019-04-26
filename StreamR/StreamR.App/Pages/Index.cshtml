@@ -11,13 +11,23 @@ Available streams:
     </ul>
 </div>
 
+<div id="stream-bar">
 Stream name: <input type="textbox" id="streamName" value="" />
 <input type="button" id="startStream" value="Start streaming" />
 <input type="button" id="stopStream" value="Stop streaming" disabled />
 <input type="button" id="swapCamera" value="Swap Camera" disabled />
+</div>
 
-<pre id="myPre"></pre>
-<canvas id="myCanvas"></canvas>
+<div id="container">
+    <div style="height: 680px; width: 680px; text-align:center; margin-right: 20px;">
+        <h3>ASCII Cam</h3>
+        <pre id="myPre"></pre>
+    </div>
+    <div style="width: 200px; height: 170px;text-align:center">
+        <h3>Web cam</h3>
+        <canvas id="myCanvas" width="200" height="170"></canvas>
+    </div>
+</div>
 
 <script src="~/ClientApp/lib/signalr/signalr.js"></script>
 <script src="~/ClientApp/lib/ascii.js"></script>

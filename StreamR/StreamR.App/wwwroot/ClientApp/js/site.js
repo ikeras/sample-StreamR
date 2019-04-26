@@ -80,8 +80,8 @@ async function startAsync() {
 
     function startCamera() {
         camera.init({
-            width: 120,
-            height: 90,
+            width: 200,
+            height: 170,
             fps: 30,
             mirror: true,
             facingMode,
@@ -89,7 +89,7 @@ async function startAsync() {
 
             onFrame: function (canvas) {
                 ascii.fromCanvas(canvas, {
-                    contrast: 170,
+                    //contrast: 170,
                     callback: function (asciiString) {
                         subject.next(asciiString);
                         asciiCanvas.innerHTML = asciiString;
@@ -98,6 +98,7 @@ async function startAsync() {
             },
 
             onSuccess: function () {
+                document.getElementById("myCanvas").style.display = "inline-block";
                 isStreaming = true;
             },
 
