@@ -93,5 +93,9 @@ namespace StreamR
                 throw new System.Exception();
             }
         }
+
+        public StreamManager(bool isTest)
+        {
+        }
     }
 }
