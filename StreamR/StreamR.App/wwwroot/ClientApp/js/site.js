@@ -62,7 +62,7 @@ async function startAsync() {
         startCamera();
 
         if (streamName === "") {
-            streamName = "random name " + Math.random() * 2;
+            streamName = "#" + Math.trunc(Math.random() * 1000);
         }
 		await connection.send("StartStream", streamName, subject);
 		addStream(streamName);
@@ -143,28 +143,33 @@ async function watchStream(streamName) {
 function addStream(streamName) {
     const list = document.getElementById('streamList');
     const listBody = list.getElementsByTagName('ul')[0];
-    if (listBody.children[0].innerHTML === "No streams available") {
-        // Clear the list
+    if (listBody.children[0].innerText = "No streams available") {
         listBody.innerHTML = '';
     }
+
+    const container = document.createElement('div');
 
     const strmButton = document.createElement('input');
     strmButton.id = "button " + streamName;
     strmButton.type = "button";
-    strmButton.value = "Watch stream";
+    strmButton.value = "📷";
     strmButton.onclick = function () { watchStream(streamName); };
 
     const strmEndButton = document.createElement('input');
     strmEndButton.id = "button close " + streamName;
     strmEndButton.type = "button";
-    strmEndButton.value = "Stop watching stream";
+    strmEndButton.value = "🚫";
     strmEndButton.setAttribute("disabled", "disabled");
+
+    const label = document.createElement('span');
+    label.innerHTML = streamName;
 
     const elem = document.createElement('li');
     elem.id = "li " + streamName;
-    elem.innerText = streamName;
-    elem.appendChild(strmButton);
-    elem.appendChild(strmEndButton);
+    container.appendChild(label);
+    container.appendChild(strmButton);
+    container.appendChild(strmEndButton);
+    elem.appendChild(container);
     listBody.appendChild(elem);
 }
 
@@ -174,7 +179,7 @@ function removeStream(streamName) {
     if (listBody.children.length === 1) {
         listBody.innerHTML = '';
         const elem = document.createElement('li');
-        elem.innerText = "No streams available";
+        elem.innerHTML = "<i>No streams available</i>";
         listBody.appendChild(elem);
         return;
     }

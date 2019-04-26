@@ -4,18 +4,11 @@
     ViewData["Title"] = "Home page";
 }
 
-Available streams:
-<div id="streamList">
-    <ul position="absolute">
-        <li>No streams available</li>
-    </ul>
-</div>
-
 <div id="stream-bar">
-Stream name: <input type="textbox" id="streamName" value="" />
-<input type="button" id="startStream" value="Start streaming" />
-<input type="button" id="stopStream" value="Stop streaming" disabled />
-<input type="button" id="swapCamera" value="Swap Camera" disabled />
+    <b>Start streaming now!</b>      <input type="textbox" id="streamName" value="" placeholder="Stream name..." />
+    <input type="button" id="startStream" value="Start streaming" />
+    <input type="button" id="stopStream" value="Stop streaming" disabled />
+    <input type="button" id="swapCamera" value="Swap Camera" disabled />
 </div>
 
 <div id="container">
@@ -25,7 +18,15 @@ Stream name: <input type="textbox" id="streamName" value="" />
     </div>
     <div style="width: 200px; height: 170px;text-align:center">
         <h3>Web cam</h3>
-        <canvas id="myCanvas" width="200" height="170"></canvas>
+        <canvas id="myCanvas" width="200" height="170"></canvas>  
+        <div id="toolbar">
+    <b>Watch other streams</b>
+    <div id="streamList">
+        <ul position="absolute" style="margin-bottom: 0;">
+            <li><i>No streams available</i></li>
+        </ul>
+    </div>
+</div>
     </div>
 </div>
 
