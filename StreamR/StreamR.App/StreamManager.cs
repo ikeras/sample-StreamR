@@ -15,10 +15,6 @@ namespace StreamR
         public List<string> ListStreams()
         {
             var streamList = new List<string>();
-			foreach (var item in _streams)
-			{
-				streamList.Add(item.Key);
-			}
 			return streamList;
         }
 
@@ -90,6 +86,12 @@ namespace StreamR
         {
             public ChannelReader<string> Source;
             public ConcurrentDictionary<long, Channel<string>> Viewers = new ConcurrentDictionary<long, Channel<string>>();
+        }
+
+        public StreamManager() {
+            if (this.ListStreams().Count == 0) {
+                throw new System.Exception();
+            }
         }
     }
 }
