@@ -74,7 +74,7 @@ async function startAsync() {
 
     swapCameraButton.onclick = async function () {
         if (facingMode === "user") {
-            facingMode = "environment";
+            facingMode = "evironment";
         } else {
             facingMode = "user";
         }

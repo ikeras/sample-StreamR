@@ -17,6 +17,10 @@ namespace StreamR
         public List<string> ListStreams()
         {
             var streamList = new List<string>();
+            foreach (var stream in _streams)
+            {
+                streamList.Add(stream.Key);
+            }
 			return streamList;
         }
 
