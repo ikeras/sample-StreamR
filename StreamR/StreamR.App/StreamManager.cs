@@ -87,15 +87,5 @@ namespace StreamR
             public ChannelReader<string> Source;
             public ConcurrentDictionary<long, Channel<string>> Viewers = new ConcurrentDictionary<long, Channel<string>>();
         }
-
-        public StreamManager() {
-            if (this.ListStreams().Count == 0) {
-                throw new System.Exception();
-            }
-        }
-
-        public StreamManager(bool isTest)
-        {
-        }
     }
 }

@@ -5,7 +5,7 @@ async function startAsync() {
         .withUrl("/stream", { /*logMessageContent: true,*/ logger: signalR.LogLevel.Information })
         .build();
 
-    let closed = false;
+    let closed = true;
     let isStreaming = false;
     let facingMode = "user";
     let subject;
@@ -52,6 +52,10 @@ async function startAsync() {
 		removeStream(streamName);
     }
     startStreamButton.onclick = async function () {
+        if (connection.connectionState === 0) {
+            return;
+        }
+       
         startStreamButton.setAttribute("disabled", "disabled");
         stopStreamButton.removeAttribute("disabled");
         swapCameraButton.removeAttribute("disabled");

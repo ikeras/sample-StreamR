@@ -9,7 +9,7 @@ namespace StreamR.Tests
 		[TestMethod]
 		public void StreamListTest()
 		{
-			StreamManager streamManager = new StreamManager(true);
+			StreamManager streamManager = new StreamManager();
 			_ = streamManager.RunStreamAsync("test", null);
 
 			// Test isn't behaving as expected, but I don't want to bring in build-break donuts 🤷‍
