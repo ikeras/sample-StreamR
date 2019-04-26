@@ -64,7 +64,7 @@ namespace StreamR
                 throw new HubException("stream doesn't exist");
             }
 
-            var id = Interlocked.Increment(ref _globalClientId);
+            var id = Interlocked.Increment(ref this._globalClientId);
 
             var channel = Channel.CreateBounded<string>(options: new BoundedChannelOptions(2)
             {
