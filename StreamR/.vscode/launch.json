@@ -1,0 +1,18 @@
+{
+	"version": "0.2.1",
+	"configurations": [
+		{
+			"name": ".NET Core Launch (console)",
+			"type": "coreclr",
+			"request": "launch",
+			"preLaunchTask": "Web App: Dotnet Build Debug",
+			"program": "${workspaceRoot}/StreamR.App/bin/Debug/netcoreapp3.0/StreamR.exe",
+			"args": [],
+			"cwd": "${workspaceRoot}/StreamR.App",
+			"env": {				
+				"ASPNETCORE_ENVIRONMENT": "Development"
+			},
+			"stopAtEntry": false
+		}
+	]
+}
