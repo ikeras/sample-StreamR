@@ -6,9 +6,9 @@
 			"type": "coreclr",
 			"request": "launch",
 			"preLaunchTask": "Web App: Dotnet Build Debug",
-			"program": "${workspaceRoot}/StreamR.App/bin/Debug/netcoreapp3.0/StreamR.exe",
+			"program": "${workspaceFolder}/StreamR.App/bin/Debug/netcoreapp3.0/StreamR.exe",
 			"args": [],
-			"cwd": "${workspaceRoot}/StreamR.App",
+			"cwd": "${workspaceFolder}/StreamR.App",
 			"env": {				
 				"ASPNETCORE_ENVIRONMENT": "Development"
 			},
