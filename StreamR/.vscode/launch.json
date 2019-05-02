@@ -15,6 +15,7 @@
 			"launchBrowser": {
 				"enabled": true,
 				"args": "${auto-detect-url}",
+				"console": "internalConsole",
 				"windows": {
 					"command": "cmd.exe",
 					"args": "/C start ${auto-detect-url}"
